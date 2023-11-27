@@ -95,9 +95,5 @@ public class Morfema implements Serializable{
 	@Override
 	public String toString() {
 		return "Nombre del morfema: " + nombreMorfema + " Traduccion: " + traduccion;
-    }
-    
-    
-    
-    
+    }    
 }

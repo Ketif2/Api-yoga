@@ -120,15 +120,4 @@ public class Asana implements Serializable{
 		return "Asana: \n" + "NombreEnIngles " + nombreEnIngles + "\nNombreEnEspañol " + nombreEnEspañol + "\nNombreEnSanskrit " + nombreEnSans;
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

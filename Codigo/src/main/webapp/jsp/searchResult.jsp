@@ -7,14 +7,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>searchResult</title>
 
 </head>
 
 <body>
 
     <header>
-        <h1>Dashboard</h1>
+        <h1>SearchResult</h1>
     </header>
 
 </body>
