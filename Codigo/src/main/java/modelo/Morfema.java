@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Morfema implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
 	final String SQL_SELECT_ALL = "SELECT * FROM morfemas;";
 	private static ArrayList<Morfema> listaMorfemas = null;
 	

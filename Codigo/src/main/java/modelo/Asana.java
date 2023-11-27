@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Asana implements Serializable{
+	private static final long serialVersionUID = 1L;
 	
 	final String SQL_SELECT_ALL = "SELECT * FROM asanas;";
 	private static ArrayList<Asana> listaAsanas = null;
