@@ -41,8 +41,6 @@ public class postureController extends HttpServlet{
 			break;
 		case "searchMorfema":
 			this.searchMorfema(request,response);
-		case "searchMorfemaInAsana":
-			this.searchMorfemaInAsana(request,response);
 		case "error":
 			this.error(request, response);
 			break;		
@@ -53,26 +51,28 @@ public class postureController extends HttpServlet{
 	}
 	
 	private void searchAsana(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String sanskritName = request.getParameter("sanskritName");//Nombre obtenido por la busqueda del jsp
-        System.out.println(sanskritName);
-        
+        String sanskritName = request.getParameter("sanskritName");//Nombre obtenido por la busqueda del jsp 
         Asana asanaModel = new Asana();
-    	ArrayList<Asana> listaAsanas =asanaModel.getAsanas();
+        Morfema morfemaModel = new Morfema();
+    	ArrayList<Asana> listaAsanas = asanaModel.getAsanas();
+    	ArrayList<Morfema> listaMorfema = morfemaModel.getMorfemas();
     	
         Asana foundAsana = asanaModel.buscarPorNombre(sanskritName,listaAsanas);
+        ArrayList<Morfema> foundMorfemas = morfemaModel.buscarMorfemasEnPalabra(sanskritName, listaMorfema);
         
         if (foundAsana != null) {
         	System.out.println("si se econtro");
-            request.setAttribute("sancrito", foundAsana.getNombreEnSans());
+        	String nombreAsana = foundAsana.getNombreEnSans();
+            request.setAttribute("sancrito", nombreAsana);
             request.setAttribute("ingles", foundAsana.getNombreEnIngles());
             request.setAttribute("español" , foundAsana.getNombreEnEspañol());
             request.setAttribute("rutaImagen" , foundAsana.getRutaImgen());
+            request.setAttribute("morfemas", foundMorfemas);
             request.getRequestDispatcher("jsp/searchResultAsana.jsp").forward(request, response);
         } else {
         	System.out.println("NO se encontro");
             error(request, response);
-        }
-        
+        }   
     }
 	
 	private void searchMorfema(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
@@ -89,24 +89,7 @@ public class postureController extends HttpServlet{
         }
         */
 	}
-	
-	private void searchMorfemaInAsana(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		/*
-		String asanaName = request.getParameter("asanaName");
-        Asana asanaModel = new Asana();
-        Asana foundAsana = asanaModel.buscarPorNombre(asanaName);
 
-        if (foundAsana != null) {
-            String nombreAsana = foundAsana.getNombreEnSans();
-            ArrayList<Morfema> morfemasEnAsana = new Morfema().buscarMorfemasEnPalabra(nombreAsana);
-
-            request.setAttribute("countMorfemas", morfemasEnAsana.size());
-            request.getRequestDispatcher("jsp/searchResult.jsp").forward(request, response);
-        } else {
-            error(request, response);
-        }*/
-	}
-	
 	private void error(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		String mensaje = "ERROR";
 		request.setAttribute("mensaje", mensaje);
