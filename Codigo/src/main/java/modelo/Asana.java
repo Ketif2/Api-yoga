@@ -22,7 +22,6 @@ public class Asana implements Serializable{
     public Asana() {
     }
     
-  
     public Asana(String nombreEnIngles, String nombreEnEspañol, String nombreEnSans) {
     	super();
         this.nombreEnIngles = nombreEnIngles;

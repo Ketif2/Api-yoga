@@ -68,6 +68,7 @@ public class Morfema implements Serializable{
         }
         return null; 
     }
+    
     public ArrayList<Morfema> buscarMorfemasEnPalabra(String palabra) {
         ArrayList<Morfema> morfemasEncontrados = new ArrayList<>();
 
