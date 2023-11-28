@@ -54,18 +54,29 @@ public class postureController extends HttpServlet{
 	
 	private void searchAsana(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String sanskritName = request.getParameter("sanskritName");//Nombre obtenido por la busqueda del jsp
+        System.out.println(sanskritName);
+        
         Asana asanaModel = new Asana();
-        Asana foundAsana = asanaModel.buscarPorNombre(sanskritName);
-
+    	ArrayList<Asana> listaAsanas =asanaModel.getAsanas();
+    	
+        Asana foundAsana = asanaModel.buscarPorNombre(sanskritName,listaAsanas);
+        
         if (foundAsana != null) {
-            request.setAttribute("foundAsana", foundAsana);
-            request.getRequestDispatcher("jsp/searchResult.jsp").forward(request, response);
+        	System.out.println("si se econtro");
+            request.setAttribute("sancrito", foundAsana.getNombreEnSans());
+            request.setAttribute("ingles", foundAsana.getNombreEnIngles());
+            request.setAttribute("español" , foundAsana.getNombreEnEspañol());
+            request.setAttribute("rutaImagen" , foundAsana.getRutaImgen());
+            request.getRequestDispatcher("jsp/searchResultAsana.jsp").forward(request, response);
         } else {
+        	System.out.println("NO se encontro");
             error(request, response);
         }
+        
     }
 	
 	private void searchMorfema(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+		/*
 		String morfemaName = request.getParameter("morfemaName");
         Morfema morfemaModel = new Morfema();
         Morfema foundMorfema = morfemaModel.buscarPorNombre(morfemaName);
@@ -76,9 +87,11 @@ public class postureController extends HttpServlet{
         } else {
             error(request, response);
         }
+        */
 	}
 	
 	private void searchMorfemaInAsana(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		/*
 		String asanaName = request.getParameter("asanaName");
         Asana asanaModel = new Asana();
         Asana foundAsana = asanaModel.buscarPorNombre(asanaName);
@@ -91,7 +104,7 @@ public class postureController extends HttpServlet{
             request.getRequestDispatcher("jsp/searchResult.jsp").forward(request, response);
         } else {
             error(request, response);
-        }
+        }*/
 	}
 	
 	private void error(HttpServletRequest request, HttpServletResponse response) throws IOException{
@@ -104,5 +117,6 @@ public class postureController extends HttpServlet{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 	}
 }
