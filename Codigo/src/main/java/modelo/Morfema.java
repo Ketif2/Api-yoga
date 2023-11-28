@@ -39,7 +39,7 @@ public class Morfema implements Serializable{
         this.traduccion = traduccion;
     }
     
-    public ArrayList<Morfema> getAsanas(){
+    public ArrayList<Morfema> getMorfemas(){
     	listaMorfemas = new ArrayList<Morfema>();
     	try {
     		PreparedStatement pstm = BddConeccion.getConexion().prepareStatement(SQL_SELECT_ALL);
@@ -47,8 +47,9 @@ public class Morfema implements Serializable{
 			
 			while(rs.next()) {
 				Morfema morfema = new Morfema();
-				morfema.setNombreMorfema("nombreMorfema");
-				morfema.setTraduccion("traduccionEsp");
+				morfema.setNombreMorfema(rs.getString(2));
+				morfema.setTraduccion(rs.getString(3));
+				listaMorfemas.add(morfema);
 			}
 			BddConeccion.cerrar(rs);
 			BddConeccion.cerrar(pstm);
@@ -68,8 +69,7 @@ public class Morfema implements Serializable{
         }
         return null; 
     }
-    
-    public ArrayList<Morfema> buscarMorfemasEnPalabra(String palabra) {
+    public ArrayList<Morfema> buscarMorfemasEnPalabra(String palabra, ArrayList<Morfema> listaMorfemas) {
         ArrayList<Morfema> morfemasEncontrados = new ArrayList<>();
 
         for (Morfema morfema : listaMorfemas) {
