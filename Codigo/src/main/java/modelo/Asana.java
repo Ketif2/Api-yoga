@@ -79,11 +79,12 @@ public class Asana implements Serializable{
 			
 			while(rs.next()) {
 				Asana asana = new Asana();
-				asana.setNombreEnIngles("nombreIngles");
-				asana.setNombreEnEspañol("nombreEsp");
-				asana.setNombreEnSans("nombreSanscrito");
-				asana.setRutaImgen("imagenRuta");
-				asana.setCategoria("categoria");
+				asana.setNombreEnIngles(rs.getString(2));
+				asana.setNombreEnEspañol(rs.getString(3));
+				asana.setNombreEnSans(rs.getString(4));
+				asana.setRutaImgen(rs.getString(5));
+				asana.setCategoria(rs.getString(6));
+				listaAsanas.add(asana);
 			}
 			BddConeccion.cerrar(rs);
 			BddConeccion.cerrar(pstm);
@@ -95,8 +96,9 @@ public class Asana implements Serializable{
 		return listaAsanas;
 	}
     
-    public Asana buscarPorNombre(String nombre) {
-        for (Asana asana : listaAsanas) {
+    public Asana buscarPorNombre(String nombre,ArrayList<Asana> listaAsanas) {
+    	
+        for (Asana asana : listaAsanas) {        	
             if (asana.getNombreEnSans().equalsIgnoreCase(nombre)) {
                 return asana;
             }
