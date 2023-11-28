@@ -32,7 +32,13 @@
 					<ul class="list-group list-group-flush">
 						<li class="list-group-item"><c:out value="${sancrito}" /></li>
 						<li class="list-group-item"><c:out value="${ingles}" /></li>
-						<li class="list-group-item"><c:out value="${español}" /></li>
+						<li class="list-group-item"><c:out value="${español}" /></li>	
+						<li class="list-group-item active"> <h6>Morfemas Usados</h6> </li>
+						<c:forEach var="morfema" items="${morfemas}">
+							<c:out value="${morfema.nombreMorfema}"/>:
+							<c:out value="${morfema.traduccion}"/>
+							<br>
+						</c:forEach>	
 					</ul>
 					<div class="card-body">
 						<p><a href="./index.html" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Ir al Inicio</a></p>
