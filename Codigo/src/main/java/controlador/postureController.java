@@ -43,27 +43,24 @@ public class postureController extends HttpServlet{
 	            break; // Agregar break aquí
 	        case "searchAsanaByCategory":
 	            this.searchAsanaByCategory(request,response);
-	            break; // Agregar break aquí
+	            break;
 	        case "error":
 	            this.error(request, response);
 	            break;
-	    }
+      }
 	}
 
 	private void showDashboard(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		response.sendRedirect("jsp/dashboard.jsp");
-	}
-	
-	private void searchAsana(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String sanskritName = request.getParameter("sanskritName");//Nombre obtenido por la busqueda del jsp
-        System.out.println(sanskritName);
-        Morfema morfemaModel = new Morfema();
+        String sanskritName = request.getParameter("sanskritName");//Nombre obtenido por la busqueda del jsp 
         Asana asanaModel = new Asana();
-    	ArrayList<Asana> listaAsanas =asanaModel.getAsanas();
-    	ArrayList<Morfema> listaMorfema = morfemaModel.getMorfemas();
+        Morfema morfemaModel = new Morfema();
+    	  ArrayList<Asana> listaAsanas = asanaModel.getAsanas();
+    	  ArrayList<Morfema> listaMorfema = morfemaModel.getMorfemas();
+    	
         Asana foundAsana = asanaModel.buscarPorNombre(sanskritName,listaAsanas);
         ArrayList<Morfema> foundMorfemas = morfemaModel.buscarMorfemasEnPalabra(sanskritName, listaMorfema);
-                
+     
         if (foundAsana != null) {
         	System.out.println("si se econtro");
         	String nombreAsana = foundAsana.getNombreEnSans();
@@ -77,7 +74,6 @@ public class postureController extends HttpServlet{
         	System.out.println("NO se encontro");
             error(request, response);
         }   
-        
     }
 	
 	private void searchMorfema(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
@@ -97,10 +93,8 @@ public class postureController extends HttpServlet{
         } else {
             error(request, response);
         }
-        
-        
 	}
-	
+
 	private void searchAsanaByCategory(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 	    // Paso 1: Obtener el parámetro de categoría
 	    String categoria = request.getParameter("category");
@@ -131,7 +125,7 @@ public class postureController extends HttpServlet{
 	    // Paso 4: Redirigir a la vista correspondiente
 	    request.getRequestDispatcher("jsp/searchAsanaByCategory.jsp").forward(request, response);
 	}
-	
+  
 	private void error(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		String mensaje = "ERROR";
 		request.setAttribute("mensaje", mensaje);
