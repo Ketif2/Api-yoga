@@ -104,6 +104,37 @@ public class Asana implements Serializable{
         }
         return null; 
     }
+    //Metodos sin uso
+    
+    public ArrayList<Asana> getAsanasPorCategoria(String categoria) {
+        listaAsanas = new ArrayList<Asana>();
+        final String SQL_SELECT_BY_CATEGORY = "SELECT * FROM asanas WHERE categoria = ?;";
+
+        try {
+            PreparedStatement pstm = BddConeccion.getConexion().prepareStatement(SQL_SELECT_BY_CATEGORY);
+            pstm.setString(1, categoria);
+            ResultSet rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                Asana asana = new Asana();
+                asana.setNombreEnIngles(rs.getString(2));
+                asana.setNombreEnEspañol(rs.getString(3));
+                asana.setNombreEnSans(rs.getString(4));
+                asana.setRutaImgen(rs.getString(5));
+                asana.setCategoria(rs.getString(6));
+                listaAsanas.add(asana);
+            }
+
+            BddConeccion.cerrar(rs);
+            BddConeccion.cerrar(pstm);
+            BddConeccion.cerrar();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listaAsanas;
+    }
+
     
     public String imprimirListaAsanas() {
         StringBuilder result = new StringBuilder("ListaAsana:\n");

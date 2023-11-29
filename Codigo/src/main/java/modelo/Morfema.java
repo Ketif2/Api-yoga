@@ -61,7 +61,7 @@ public class Morfema implements Serializable{
 		return listaMorfemas;
 	}
     
-    public Morfema buscarPorNombre(String nombre) {
+    public Morfema buscarPorNombre(String nombre, ArrayList<Morfema> listaMorfemas ) {
         for (Morfema morfema : listaMorfemas) {
             if (morfema.getNombreMorfema().equalsIgnoreCase(nombre)) {
                 return morfema;

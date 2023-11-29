@@ -1,13 +1,7 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
 header {
     text-align: center;
-    background-color: #333;
-    color: white;
+    background-color: #6EB5E1;
+    color: #FFFFFF;
     padding: 20px;
 }
 
@@ -23,8 +17,8 @@ section {
 }
 
 footer {
-    background-color: #333;
-    color: white;
+    background-color: #6EB5E1;
+    color: #FFFFFF;
     text-align: center;
     padding: 10px;
     position: fixed;
@@ -33,7 +27,8 @@ footer {
 }
 
 footer a {
-    color: white;
+    color: #FFFFFF;
     text-decoration: none;
     margin: 0 10px;
 }
+
