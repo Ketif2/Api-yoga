@@ -47,16 +47,11 @@ public class postureController extends HttpServlet{
 	        case "error":
 	            this.error(request, response);
 	            break;
-<<<<<<< HEAD
 	    }
-=======
-      }
->>>>>>> b9edf8cf485417f0681920ef1e4fd5a0d4cbbacd
 	}
 
 	private void showDashboard(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		response.sendRedirect("jsp/dashboard.jsp");
-<<<<<<< HEAD
 	}
 	
 	private void searchAsana(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -67,18 +62,7 @@ public class postureController extends HttpServlet{
     	ArrayList<Morfema> listaMorfema = morfemaModel.getMorfemas();
         Asana foundAsana = asanaModel.buscarPorNombre(sanskritName,listaAsanas);
         ArrayList<Morfema> foundMorfemas = morfemaModel.buscarMorfemasEnPalabra(sanskritName, listaMorfema);
-                
-=======
-        String sanskritName = request.getParameter("sanskritName");//Nombre obtenido por la busqueda del jsp 
-        Asana asanaModel = new Asana();
-        Morfema morfemaModel = new Morfema();
-    	  ArrayList<Asana> listaAsanas = asanaModel.getAsanas();
-    	  ArrayList<Morfema> listaMorfema = morfemaModel.getMorfemas();
-    	
-        Asana foundAsana = asanaModel.buscarPorNombre(sanskritName,listaAsanas);
-        ArrayList<Morfema> foundMorfemas = morfemaModel.buscarMorfemasEnPalabra(sanskritName, listaMorfema);
-     
->>>>>>> b9edf8cf485417f0681920ef1e4fd5a0d4cbbacd
+
         if (foundAsana != null) {
         	System.out.println("si se econtro");
         	String nombreAsana = foundAsana.getNombreEnSans();
@@ -89,15 +73,9 @@ public class postureController extends HttpServlet{
             request.setAttribute("morfemas", foundMorfemas);
             request.getRequestDispatcher("/jsp/searchResultAsana.jsp").forward(request, response);
         } else {
-<<<<<<< HEAD
             request.setAttribute("error", "La postura no fue encontrada.");
             request.getRequestDispatcher("/jsp/dashboard.jsp").forward(request, response);
         }
-=======
-        	System.out.println("NO se encontro");
-            error(request, response);
-        }   
->>>>>>> b9edf8cf485417f0681920ef1e4fd5a0d4cbbacd
     }
 	
 	private void searchMorfema(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
@@ -121,10 +99,7 @@ public class postureController extends HttpServlet{
         }
 	}
 
-<<<<<<< HEAD
-	
-=======
->>>>>>> b9edf8cf485417f0681920ef1e4fd5a0d4cbbacd
+
 	private void searchAsanaByCategory(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 	    // Paso 1: Obtener el parámetro de categoría
 	    String categoria = request.getParameter("category");
@@ -155,12 +130,7 @@ public class postureController extends HttpServlet{
 	    // Paso 4: Redirigir a la vista correspondiente
 	    request.getServletContext().getRequestDispatcher("/jsp/searchAsanaByCategory.jsp").forward(request, response);
 	}
-<<<<<<< HEAD
-	
 
-=======
-  
->>>>>>> b9edf8cf485417f0681920ef1e4fd5a0d4cbbacd
 	private void error(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		String mensaje = "ERROR";
 		request.setAttribute("mensaje", mensaje);
