@@ -24,13 +24,20 @@
 					<div class="card text-center">
 						<div class="card-header">Búsqueda por Asana</div>
 						<div class="card-body">
-							<form action="../postureController?rute=searchAsana"
-								method="post">
+							<form action="${pageContext.request.contextPath}/postureController?rute=searchAsana" 
+							method="post">
 								<div class="input-group mb-3">
 									<input type="text" class="form-control"
-										placeholder="Introduce Postura" name="sanskritName">
+										placeholder="Introduce Postura en Sancrito" name="sanskritName">
 								</div>
 							</form>
+							<!-- Mostrar mensaje de error si existe -->
+							<c:if test="${not empty error}">
+								<div class="alert alert-danger mt-3" role="alert">
+									<strong>Error:</strong>
+									<c:out value="${error}" />
+								</div>
+							</c:if>
 						</div>
 					</div>
 				</div>
@@ -38,13 +45,20 @@
 					<div class="card text-center">
 						<div class="card-header">Búsqueda por Morfema</div>
 						<div class="card-body">
-							<form action="../postureController?rute=searchMorfema"
-								method="post">
+							<form action="${pageContext.request.contextPath}/postureController?rute=searchMorfema" 
+							method="post">
 								<div class="input-group mb-3">
 									<input type="text" class="form-control"
-										placeholder="Introduce Morfema" name="morfemaName">
+										placeholder="Introduce Morfema en Sancrito" name="morfemaName">
 								</div>
 							</form>
+														<!-- Mostrar mensaje de error si existe -->
+							<c:if test="${not empty error1}">
+								<div class="alert alert-danger mt-3" role="alert">
+									<strong>Error:</strong>
+									<c:out value="${error1}" />
+								</div>
+							</c:if>
 						</div>
 					</div>
 				</div>
@@ -52,8 +66,8 @@
 					<div class="card text-center">
 						<div class="card-header">Búsqueda por Categoría</div>
 						<div class="card-body">
-							<form action="../postureController?rute=searchAsanaByCategory"
-								method="post">
+							<form action="${pageContext.request.contextPath}/postureController?rute=searchAsanaByCategory" 
+							method="post">
 								<!-- Botón dentro del formulario -->
 								<button type="submit" name="category" value="p"
 									class="btn btn-outline-info">Depie</button>

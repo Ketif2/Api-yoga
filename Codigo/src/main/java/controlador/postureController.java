@@ -47,20 +47,22 @@ public class postureController extends HttpServlet{
 	        case "error":
 	            this.error(request, response);
 	            break;
-      }
+	    }
 	}
 
 	private void showDashboard(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		response.sendRedirect("jsp/dashboard.jsp");
-        String sanskritName = request.getParameter("sanskritName");//Nombre obtenido por la busqueda del jsp 
-        Asana asanaModel = new Asana();
+	}
+	
+	private void searchAsana(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        String sanskritName = request.getParameter("sanskritName");//Nombre obtenido por la busqueda del jsp
         Morfema morfemaModel = new Morfema();
-    	  ArrayList<Asana> listaAsanas = asanaModel.getAsanas();
-    	  ArrayList<Morfema> listaMorfema = morfemaModel.getMorfemas();
-    	
+        Asana asanaModel = new Asana();
+    	ArrayList<Asana> listaAsanas =asanaModel.getAsanas();
+    	ArrayList<Morfema> listaMorfema = morfemaModel.getMorfemas();
         Asana foundAsana = asanaModel.buscarPorNombre(sanskritName,listaAsanas);
         ArrayList<Morfema> foundMorfemas = morfemaModel.buscarMorfemasEnPalabra(sanskritName, listaMorfema);
-     
+
         if (foundAsana != null) {
         	System.out.println("si se econtro");
         	String nombreAsana = foundAsana.getNombreEnSans();
@@ -69,11 +71,11 @@ public class postureController extends HttpServlet{
             request.setAttribute("español" , foundAsana.getNombreEnEspañol());
             request.setAttribute("rutaImagen" , foundAsana.getRutaImgen());
             request.setAttribute("morfemas", foundMorfemas);
-            request.getRequestDispatcher("jsp/searchResultAsana.jsp").forward(request, response);
+            request.getRequestDispatcher("/jsp/searchResultAsana.jsp").forward(request, response);
         } else {
-        	System.out.println("NO se encontro");
-            error(request, response);
-        }   
+            request.setAttribute("error", "La postura no fue encontrada.");
+            request.getRequestDispatcher("/jsp/dashboard.jsp").forward(request, response);
+        }
     }
 	
 	private void searchMorfema(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
@@ -89,11 +91,14 @@ public class postureController extends HttpServlet{
             request.setAttribute("morfemaSancrito", foundMorfema.getNombreMorfema());
             request.setAttribute("morfemaEspañol", foundMorfema.getTraduccion());
             System.out.println("" + foundMorfema.getNombreMorfema() + foundMorfema.getTraduccion());
-            request.getRequestDispatcher("jsp/searchResultMorfema.jsp").forward(request, response);
+            request.getRequestDispatcher("/jsp/searchResultMorfema.jsp").forward(request, response);
         } else {
-            error(request, response);
+            request.setAttribute("error1", "El Morfema no fue encontrado.");
+            request.getRequestDispatcher("/jsp/dashboard.jsp").forward(request, response);
+
         }
 	}
+
 
 	private void searchAsanaByCategory(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 	    // Paso 1: Obtener el parámetro de categoría
@@ -123,9 +128,9 @@ public class postureController extends HttpServlet{
 	    request.setAttribute("asanasPorCategoria", asanasPorCategoria);
 	    request.setAttribute("Categoria", translatedCategory);
 	    // Paso 4: Redirigir a la vista correspondiente
-	    request.getRequestDispatcher("jsp/searchAsanaByCategory.jsp").forward(request, response);
+	    request.getServletContext().getRequestDispatcher("/jsp/searchAsanaByCategory.jsp").forward(request, response);
 	}
-  
+
 	private void error(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		String mensaje = "ERROR";
 		request.setAttribute("mensaje", mensaje);
@@ -136,6 +141,5 @@ public class postureController extends HttpServlet{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
 }
