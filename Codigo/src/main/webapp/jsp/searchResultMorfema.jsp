@@ -1,43 +1,52 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet"
-	href="../css/style.css">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<title>YoganismoInc</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing Script">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+	<title>YoganismoInc</title>
 </head>
 <body>
+	<!-------Header--------->
+	<header>
+        <div class="div_header_structure">
+            <div class="div_img">
+                <img class="img" src="${pageContext.request.contextPath}/img/LogoYY.png" alt="">
+            </div>
+            <div class="div_text text-center">
+                <a>Asana Lexico</a>
+            </div>
+        </div>
+    </header>
 
-	<%@include file='../templates/banner.html'%>
-
+	<!-------Section--------->
 	<section class="container">
-		<div class="container text-center">
-			<div class="row">
+		<div class="container text-center mt-5">
+			<div class="card-body mt-5 text-center">
+				<p>
+					<a href="./index.html"
+						class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Ir al Inicio
+					</a>
+				</p>
+			</div>
+			<div class="row pb-4">
 				<div class="col"></div>
-				<div class="col">
-					<div class="card" style="width: 18rem;">						
-						<div class="card-body">
-							<h5 class="card-title">MORFEMA</h5>
+				<div class="col mb-5">
+					<div class="card mb-3" style="width: 100%;">						
+						<div class="card-header">
+							<h5>MORFEMA</h5>
 						</div>
 						<ul class="list-group list-group-flush">
 							Sanscrito: <li class="list-group-item"><c:out value="${morfemaSancrito}" /></li>
-							Español: <li class="list-group-item"><c:out value="${morfemaEspañol}" /></li>
+							EspaÃ±ol: <li class="list-group-item"><c:out value="${morfemaEspaÃ±ol}" /></li>
 						</ul>
-						<div class="card-body">
-							<p>
-								<a href="./index.html"
-									class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Ir
-									al Inicio</a>
-							</p>
-						</div>
 					</div>
 				</div>
 				<div class="col"></div>
@@ -45,7 +54,14 @@
 		</div>
 	</section>
 
-	<%@include file='../templates/footer.html'%>
+	<!-------Footer--------->
+	<footer class="footer">
+        <div>
+            <a>
+                Â© 2023 Averos (Arquitecto)| Becerra (junior) | Revelo (Scrum) | Salazar (Recontratado). Todos los derechos reservados.
+            </a>
+        </div>
+    </footer>
 
 </body>
 </html>
