@@ -4,22 +4,33 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../css/styles.css">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<title>YoganismoInc</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing Script">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+	<title>YoganismoInc</title>
 </head>
 <body>
+	<!-------Header--------->
+	<header>
+        <div class="div_header_structure">
+            <div class="div_img">
+                <img class="img" src="${pageContext.request.contextPath}/img/LogoYY.png" alt="">
+            </div>
+            <div class="div_text text-center">
+                <a>Asana Lexico</a>
+            </div>
+        </div>
+    </header>
 
-	<%@include file='../templates/banner.html'%>
-
+	<!-------Section--------->
+	
 	<section class="container">
-		<div class="container text-center">
-			<div class="row">
+		<div class="container text-center" id="div_busquedas">
+			<div class="row1 mb-5 pb-3">
 				<div class="col">
 					<div class="card text-center">
 						<div class="card-header">Búsqueda por Asana</div>
@@ -43,7 +54,7 @@
 				</div>
 				<div class="col">
 					<div class="card text-center">
-						<div class="card-header">Búsqueda por Morfema</div>
+						<div class="card-header text-light">Búsqueda por Morfema</div>
 						<div class="card-body">
 							<form action="${pageContext.request.contextPath}/postureController?rute=searchMorfema" 
 							method="post">
@@ -64,8 +75,8 @@
 				</div>
 				<div class="col">
 					<div class="card text-center">
-						<div class="card-header">Búsqueda por Categoría</div>
-						<div class="card-body">
+						<div class="card-header text-light">Búsqueda por Categoría</div>
+						<div class="card-body  mb-3">
 							<form action="${pageContext.request.contextPath}/postureController?rute=searchAsanaByCategory" 
 							method="post">
 								<!-- Botón dentro del formulario -->
@@ -82,15 +93,15 @@
 			</div>
 		</div>
 	</section>
-
-	<%@include file='../templates/footer.html'%>
-
-	<!-- Agregar los scripts de Bootstrap al final del cuerpo del documento para mejorar el rendimiento -->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	
+	<!-------Footer--------->
+	<footer class="footer">
+        <div>
+            <a>
+                © 2023 Averos (Arquitecto)| Becerra (junior) | Revelo (Scrum) | Salazar (Recontratado). Todos los derechos reservados.
+            </a>
+        </div>
+    </footer>
 
 </body>
 </html>
