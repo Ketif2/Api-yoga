@@ -7,7 +7,7 @@ header{
 .div_img
 {
     width: 8%;
-    height: 110px;
+    height: 100%;
 }
 .img
 {
@@ -17,10 +17,16 @@ header{
 
 .div_text
 {
+    --bs-gutter-x: 1.5rem;
     font-size: 70px;
-    margin-left: 70px;
+    /*margin-left: 425px;*/
     font-family: 'Dancing Script';
-    padding-left: 10px;
+    
+    /*display: flex;
+    margin-left: calc(15 * var(--bs-gutter-x));
+    margin-right: calc(15 * var(--bs-gutter-x));*/
+    
+    width: 100%;
 }
 .div_header_structure
 {
