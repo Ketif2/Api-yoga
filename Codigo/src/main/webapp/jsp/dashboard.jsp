@@ -16,12 +16,12 @@
 <body>
 	<!-------Header--------->
 	<header>
-        <div class="div_header_structure">
+        <div class="div_header_structure text-center">
             <div class="div_img">
-            	<a href="./index.html" > <img class="img" src="${pageContext.request.contextPath}/img/LogoYY.png" alt=""></a>
+            		<img class="img" src="${pageContext.request.contextPath}/img/LogoYY.png" alt="">
             </div>
-            <div class="div_text text-center">
-                <a>Asana Léxico</a>
+            <div class="div_text mx-auto">
+                <span class="text-center">Asana Léxico</span>
             </div>
         </div>
     </header>
@@ -98,7 +98,7 @@
 	<footer class="footer">
         <div>
             <a>
-                © 2023 David Averos (Arquitecto)| Ricardo Becerra (Junior) | Kevin Revelo (Scrum) | Jonathan Salazar (Frontend). Todos los derechos reservados.
+                © 2023 David Averos (Arquitecto)| Ricardo Becerra (Developer) | Kevin Revelo (Scrum) | Jonathan Salazar (Frontend). Todos los derechos reservados.
             </a>
         </div>
     </footer>

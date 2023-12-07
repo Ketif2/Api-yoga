@@ -18,7 +18,7 @@
 	<header>
         <div class="div_header_structure">
             <div class="div_img">
-            	<a href="./index.html" > <img class="img" src="${pageContext.request.contextPath}/img/LogoYY.png" alt=""></a>
+            	<img class="img" src="${pageContext.request.contextPath}/img/LogoYY.png" alt="">
             </div>
             <div class="div_text text-center">
                 <a>Asana Léxico</a>
@@ -30,7 +30,7 @@
 	<section class="container">
 	<div class="container">
 		<div class="card-body mt-4 text-center">
-			<p><a href="./index.html" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Ir 
+			<p><a href="./index.html" class="btn btn-outline-success">Ir 
 			al Inicio</a></p>
 		</div>
 		<div class="row pb-4">

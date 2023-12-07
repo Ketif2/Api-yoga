@@ -55,7 +55,6 @@ public class Morfema implements Serializable{
 			BddConeccion.cerrar(pstm);
 			BddConeccion.cerrar();
 ;		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return listaMorfemas;
@@ -81,20 +80,4 @@ public class Morfema implements Serializable{
         return morfemasEncontrados;
     }
     
-    public String imprmirListaMorfema() {
-        StringBuilder result = new StringBuilder("");
-
-        for (Morfema morfema : listaMorfemas) {
-            result.append(morfema.toString()).append("\n");
-        }
-
-        return result.toString();
-    }
-    
- 
-
-	@Override
-	public String toString() {
-		return "Nombre del morfema: " + nombreMorfema + " Traduccion: " + traduccion;
-    }    
 }

@@ -21,8 +21,8 @@ public class Asana implements Serializable{
     
     public Asana() {
     }
-    
-    public Asana(String nombreEnIngles, String nombreEnEspañol, String nombreEnSans) {
+
+	public Asana(String nombreEnIngles, String nombreEnEspañol, String nombreEnSans) {
     	super();
         this.nombreEnIngles = nombreEnIngles;
         this.nombreEnEspañol = nombreEnEspañol;
@@ -89,7 +89,6 @@ public class Asana implements Serializable{
 			BddConeccion.cerrar(pstm);
 			BddConeccion.cerrar();
 ;		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return listaAsanas;
@@ -104,7 +103,6 @@ public class Asana implements Serializable{
         }
         return null; 
     }
-    //Metodos sin uso
     
     public ArrayList<Asana> getAsanasPorCategoria(String categoria) {
         listaAsanas = new ArrayList<Asana>();
@@ -134,22 +132,4 @@ public class Asana implements Serializable{
 
         return listaAsanas;
     }
-
-    
-    public String imprimirListaAsanas() {
-        StringBuilder result = new StringBuilder("ListaAsana:\n");
-
-        for (Asana asana : listaAsanas) {
-            result.append(asana.toString()).append("\n");
-        }
-
-        return result.toString();
-    }
-
-
-	@Override
-	public String toString() {
-		return "Asana: \n" + "NombreEnIngles " + nombreEnIngles + "\nNombreEnEspañol " + nombreEnEspañol + "\nNombreEnSanskrit " + nombreEnSans;
-    }
-    
 }

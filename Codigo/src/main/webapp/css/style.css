@@ -19,13 +19,7 @@ header{
 {
     --bs-gutter-x: 1.5rem;
     font-size: 70px;
-    /*margin-left: 425px;*/
     font-family: 'Dancing Script';
-    
-    /*display: flex;
-    margin-left: calc(15 * var(--bs-gutter-x));
-    margin-right: calc(15 * var(--bs-gutter-x));*/
-    
     width: 100%;
 }
 .div_header_structure
