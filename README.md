@@ -12,12 +12,10 @@ Este proyecto proporciona una aplicativo que interactua con el usuario, ayudando
 - Detalles específicos de cada posición, incluyendo morfemas que la componen y su traducción al español e inglés a partir de la lengua base Sanscrito.
 
 ## Tecnologías Utilizadas
-
-- [Lenguaje de Programación]: JAVA
+- [Lenguaje de Programación] - Java
 - [Web]: HTML - CSS
-- [Base de Datos]: PHPMyAdmin
-- [Arquitectura]: MVC
-
+- [Base de Datos] - PHPMyAdmin
+- [Arquitectura] - MVC
 ## Instalación
 
 1. Clona este repositorio:
