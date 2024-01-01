@@ -20,7 +20,14 @@
     </plugins>
   </build>
   <dependencies>
-		
+		<!-- Servlet API -->
+	    <dependency>
+	        <groupId>javax.servlet</groupId>
+	        <artifactId>javax.servlet-api</artifactId>
+	        <version>4.0.1</version> <!-- Ajusta la versión según tu necesidad -->
+	        <scope>provided</scope>
+	    </dependency>
+	    
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -48,7 +55,6 @@
 		    <artifactId>mockito-core</artifactId>
     		<version>3.12.4</version>
 		</dependency>
-
-
+		
 	</dependencies>
 </project>

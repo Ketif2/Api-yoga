@@ -24,8 +24,17 @@ Este proyecto proporciona una aplicativo que interactua con el usuario, ayudando
     git clone 'https://github.com/Ketif2/Api-yoga.git'
     ```
 
-3. Configura la base de datos y otros parámetros: Tablas [Asana] y [Morfema]
-[ScriptAsanasMorfemasSQL (1).txt](https://github.com/Ketif2/Api-yoga/files/13601761/ScriptAsanasMorfemasSQL.1.txt)
+2. Configura la base de datos y otros parámetros:
+   * Tablas [Asana] y [Morfema]
+    [Uploading CreaciónTablas.txt…]()
+   * Llenado de datos
+    [ScriptAsanasMorfemasSQL (1).txt](https://github.com/Ketif2/Api-yoga/files/13601761/ScriptAsanasMorfemasSQL.1.txt)
+
+4. En caso de error con las librerias
+Abrir el IDE Eclipse
+    1.- En nuestro IDE Eclipse deberemos seleccionar en la seccion de Servers a nuestro servidor apache-tomcat-8.5.92
+    2.- Una vez clonado el repositorio se debera dar click derecho en nuestro proyecto para en la seleccion de MAVEN, daremos Update Project...
+    3.- Dar click derecho al proyecto y en propiedades nos dirigiremos a Java Build Path y seleccionaremos a todas la librerias
 
 ## Contribuciones
 
