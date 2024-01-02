@@ -6,15 +6,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class Morfema implements Serializable{
-	private static final long serialVersionUID = 1L;
-	
-	final String SQL_SELECT_ALL = "SELECT * FROM morfemas;";
-	private static ArrayList<Morfema> listaMorfemas = null;
-	
-	private String nombreMorfema;
+public class Morfema implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    // Consulta SQL para seleccionar todos los morfemas de la base de datos
+    final String SQL_SELECT_ALL = "SELECT * FROM morfemas;";
+
+    // Lista estática para almacenar los morfemas cargados desde la base de datos
+    private static ArrayList<Morfema> listaMorfemas = null;
+
+    // Atributos de un Morfema
+    private String nombreMorfema;
     private String traduccion;
-    
+
+    // Constructores
     public Morfema() {
     }
 
@@ -23,6 +28,7 @@ public class Morfema implements Serializable{
         this.traduccion = traduccion;
     }
 
+    // Métodos getter y setter para los atributos de Morfema
     public String getNombreMorfema() {
         return nombreMorfema;
     }
@@ -38,36 +44,44 @@ public class Morfema implements Serializable{
     public void setTraduccion(String traduccion) {
         this.traduccion = traduccion;
     }
-    
-    public ArrayList<Morfema> getMorfemas(){
-    	listaMorfemas = new ArrayList<Morfema>();
-    	try {
-    		PreparedStatement pstm = BddConeccion.getConexion().prepareStatement(SQL_SELECT_ALL);
-			ResultSet rs = pstm.executeQuery();
-			
-			while(rs.next()) {
-				Morfema morfema = new Morfema();
-				morfema.setNombreMorfema(rs.getString(2));
-				morfema.setTraduccion(rs.getString(3));
-				listaMorfemas.add(morfema);
-			}
-			BddConeccion.cerrar(rs);
-			BddConeccion.cerrar(pstm);
-			BddConeccion.cerrar();
-;		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return listaMorfemas;
-	}
-    
-    public Morfema buscarPorNombre(String nombre, ArrayList<Morfema> listaMorfemas ) {
+
+    // Método para obtener todos los morfemas desde la base de datos
+    public ArrayList<Morfema> getMorfemas() {
+        listaMorfemas = new ArrayList<Morfema>();
+        try {
+            // Preparar y ejecutar la consulta SQL
+            PreparedStatement pstm = BddConeccion.getConexion().prepareStatement(SQL_SELECT_ALL);
+            ResultSet rs = pstm.executeQuery();
+
+            // Procesar los resultados y almacenar los morfemas en la lista
+            while (rs.next()) {
+                Morfema morfema = new Morfema();
+                morfema.setNombreMorfema(rs.getString(2));
+                morfema.setTraduccion(rs.getString(3));
+                listaMorfemas.add(morfema);
+            }
+
+            // Cerrar recursos
+            BddConeccion.cerrar(rs);
+            BddConeccion.cerrar(pstm);
+            BddConeccion.cerrar();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listaMorfemas;
+    }
+
+    // Método para buscar un Morfema por su nombre en la lista
+    public Morfema buscarPorNombre(String nombre, ArrayList<Morfema> listaMorfemas) {
         for (Morfema morfema : listaMorfemas) {
             if (morfema.getNombreMorfema().equalsIgnoreCase(nombre)) {
                 return morfema;
             }
         }
-        return null; 
+        return null;
     }
+
+    // Método para buscar morfemas en una palabra dada
     public ArrayList<Morfema> buscarMorfemasEnPalabra(String palabra, ArrayList<Morfema> listaMorfemas) {
         ArrayList<Morfema> morfemasEncontrados = new ArrayList<>();
 
@@ -79,5 +93,5 @@ public class Morfema implements Serializable{
 
         return morfemasEncontrados;
     }
-    
 }
+

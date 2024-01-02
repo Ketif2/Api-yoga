@@ -63,7 +63,7 @@
 										placeholder="Introduce Morfema en Sánscrito" name="morfemaName">
 								</div>
 							</form>
-														<!-- Mostrar mensaje de error si existe -->
+							<!-- Mostrar mensaje de error si existe -->
 							<c:if test="${not empty error1}">
 								<div class="alert alert-danger mt-3" role="alert">
 									<strong>Error:</strong>
@@ -83,9 +83,9 @@
 								<button type="submit" name="category" value="p"
 									class="btn btn-outline-info">De pie</button>
 								<button type="submit" name="category" value="s"
-									class="btn btn-outline-info">Sentado</button>
-								<button type="submit" name="category" value="a"
 									class="btn btn-outline-info">Sedente</button>
+								<button type="submit" name="category" value="a"
+									class="btn btn-outline-info">Decúbito</button>
 							</form>
 						</div>
 					</div>
