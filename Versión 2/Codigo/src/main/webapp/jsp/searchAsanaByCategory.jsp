@@ -36,15 +36,13 @@
 			</p>
 		</div>
 		<div class="list-group mt-4 mb-5 pb-3">
-			
 			<a class="list-group-item card-header"
 				aria-current="true"> <c:out value="${Categoria}" />
 			</a>
-
 			<c:forEach var="asana" items="${requestScope.asanasPorCategoria}">
-				<a href="#" class="list-group-item list-group-item-action"> <c:out
-						value="${asana.getNombreEnSans()}" />
-				</a>
+			    <a href="${pageContext.request.contextPath}/postureController?rute=searchAsana&sanskritName=${asana.getNombreEnSans()}" class="list-group-item list-group-item-action">
+			        <c:out value="${asana.getNombreEnSans()}" />
+			    </a>
 			</c:forEach>
 		</div>
 	</section>
