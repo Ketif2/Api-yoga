@@ -76,7 +76,7 @@ public class postureController extends HttpServlet {
             request.setAttribute("morfemas", foundMorfemas);
             request.getRequestDispatcher("/jsp/searchResultAsana.jsp").forward(request, response);
         } else {
-            request.setAttribute("error", "La postura no fue encontrada.");
+        	request.setAttribute("error", "Postura no encontrada.\nPor favor, verifica que el postura ingresada sea correcta e inténtalo nuevamente.");
             request.getRequestDispatcher("/jsp/dashboard.jsp").forward(request, response);
         }
     }
@@ -97,7 +97,7 @@ public class postureController extends HttpServlet {
             System.out.println("" + foundMorfema.getNombreMorfema() + foundMorfema.getTraduccion());
             request.getRequestDispatcher("/jsp/searchResultMorfema.jsp").forward(request, response);
         } else {
-            request.setAttribute("error1", "El Morfema no fue encontrado.");
+        	request.setAttribute("error1", "Morfema no encontrado.\nPor favor, verifica que el morfema ingresado sea correcto e inténtalo nuevamente.");
             request.getRequestDispatcher("/jsp/dashboard.jsp").forward(request, response);
 
         }
