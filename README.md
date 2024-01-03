@@ -26,10 +26,9 @@ Este proyecto proporciona una aplicativo que interactua con el usuario, ayudando
 
 2. Configura la base de datos y otros parámetros:
    * Tablas [Asana] y [Morfema]
-    [ScriptBaseTablasAsanasMorfemasSQL.txt](https://github.com/Ketif2/Api-yoga/files/13806495/ScriptBaseTablasAsanasMorfemasSQL.txt)
-
+    [ScriptBaseTablasAsanasMorfemasSQL.txt](https://github.com/Ketif2/Api-yoga/files/13814971/ScriptBaseTablasAsanasMorfemasSQL.txt)
    * Llenado de datos
-    [ScriptAsanasMorfemasSQL.txt](https://github.com/Ketif2/Api-yoga/files/13601761/ScriptAsanasMorfemasSQL.1.txt)
+    [ScriptAsanasMorfemasSQL.txt](https://github.com/Ketif2/Api-yoga/files/13814970/ScriptAsanasMorfemasSQL.txt)
 
 4. En caso de error con las librerias
 Abrir el IDE Eclipse
@@ -43,7 +42,8 @@ Abrir el IDE Eclipse
 
 1. Haz un fork del repositorio.
 2. Crea una nueva rama: `git checkout -b feature/nueva-funcionalidad`.
-3. Realiza tus cambios y haz commit: `git commit -m 'Añade nueva funcionalidad'`.
+3. Realiza tus cambios y haz commit:
+ `git commit -m 'Añade nueva funcionalidad'`.
 4. Haz push a la rama: `git push origin feature/nueva-funcionalidad`.
 5. Abre un pull request.
 
