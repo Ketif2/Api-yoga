@@ -76,7 +76,7 @@ public class postureController extends HttpServlet {
             request.setAttribute("morfemas", foundMorfemas);
             request.getRequestDispatcher("/jsp/searchResultAsana.jsp").forward(request, response);
         } else {
-        	request.setAttribute("error", "Postura no encontrada.\nPor favor, verifica que el postura ingresada sea correcta e inténtalo nuevamente.");
+        	request.setAttribute("error", "Postura no encontrada.\nPor favor, verifica que el nombre de la postura ingresada sea correcto e inténtalo nuevamente.");
             request.getRequestDispatcher("/jsp/dashboard.jsp").forward(request, response);
         }
     }
