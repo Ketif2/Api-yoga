@@ -22,7 +22,6 @@ public class Asana implements Serializable {
     private String nombreEnSans;
     private String categoria;
     private String rutaImagen;
-    private String subcategoria;
 
     // Constructores
     public Asana() {
@@ -78,14 +77,6 @@ public class Asana implements Serializable {
     public void setRutaImagen(String rutaImgen) {
         this.rutaImagen = rutaImgen;
     }
-    
-    public String getSubcategoria() {
-		return subcategoria;
-	}
-
-	public void setSubcategoria(String subcategoria) {
-		this.subcategoria = subcategoria;
-	}
 
 	// Método para obtener todas las Asanas desde la base de datos
     public ArrayList<Asana> getAsanas() {
@@ -103,7 +94,6 @@ public class Asana implements Serializable {
                 asana.setNombreEnSans(rs.getString(4));
                 asana.setRutaImagen(rs.getString(5));
                 asana.setCategoria(rs.getString(6));
-                asana.setSubcategoria(rs.getString(7)); 
                 listaAsanas.add(asana);
             }
 
@@ -146,7 +136,6 @@ public class Asana implements Serializable {
                 asana.setNombreEnSans(rs.getString(4));
                 asana.setRutaImagen(rs.getString(5));
                 asana.setCategoria(rs.getString(6));
-                asana.setSubcategoria(rs.getString(7));
                 listaAsanas.add(asana);
             }
 
