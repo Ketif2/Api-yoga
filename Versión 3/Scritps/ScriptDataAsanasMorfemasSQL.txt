@@ -1,0 +1,52 @@
+-- INSERT INTO tabla Asanas
+
+INSERT INTO asanas (nombreIngles, nombreEsp, nombreSanscrito, imagenRuta, categoria) 
+VALUES 
+('Mountain Pose', 'Postura de la Montaña', 'Tadasana', 'img/mountain-pose', 'p'),
+('Downward-Facing Dog', 'Perro mirando hacia abajo', 'Adho Mukha Svanasana', 'img/downward-facing-dog', 'p'),
+('Warrior I', 'Guerrero I', 'Virabhadrasana I', 'img/warrior-i', 'p'),
+('Warrior II', 'Guerrero II', 'Virabhadrasana II', 'img/warrior-ii', 'p'),
+('Tree Pose', 'Postura del Árbol', 'Vrikshasana', 'img/tree-pose', 'p'),
+('Child''s Pose', 'Postura del Niño', 'Balasana', 'img/childs-pose', 's'),
+('Half Cobra Pose', 'Postura de la Cobra a la mitad', 'Ardha Bhujangasana', 'img/half-cobra-pose', 'a'),
+('Seated Forward Bend', 'Flexión hacia adelante sentado', 'Paschimottanasana', 'img/seated-forward-bend', 's'),
+('Bridge Pose', 'Postura del Puente', 'Setu Bandhasana', 'img/bridge-pose', 'a'),
+('Corpse Pose', 'Postura del Cadáver', 'Shavasana', 'img/corpse-pose', 'a'),
+('Triangle Pose', 'Postura del Triángulo', 'Trikonasana', 'img/triangle-pose', 'p'),
+('Plank Pose', 'Postura de la Plancha', 'Kumbhakasana', 'img/plank-pose', 'a'),
+('Upward-Facing Dog', 'Perro mirando hacia arriba', 'Urdhva Mukha Svanasana', 'img/upward-facing-dog', 'a'),
+('Fish Pose', 'Postura del Pez', 'Matsyasana', 'img/fish-pose', 'a'),
+('Chair Pose', 'Postura de la Silla', 'Utkatasana', 'img/chair-pose', 'p'),
+('Garland Pose', 'Postura de la Guirnalda', 'Malasana', 'img/garland-pose', 's'),
+('Pigeon Pose', 'Postura de la Paloma', 'Eka Pada Rajakapotasana', 'img/pigeon-pose', 's'),
+('Upward Salute', 'Saludo hacia arriba', 'Urdhva Hastasana', 'img/upward-salute', 'p'),
+('Revolved Triangle Pose', 'Postura del Triángulo Invertido', 'Parivrtta Trikonasana', 'img/revolved-triangle-pose', 'p'),
+('Revolved Head To Knee Pose', 'Postura de la Cabeza a la Rodilla Invertida', 'Parivrtta Janu Sirsasana', 'img/revolved-head-to-knee-pose', 's');
+
+-- INSERT INTO tabla Morfemas
+INSERT INTO morfemas (nombreMorfema, traduccionEsp, traduccionIngles) 
+VALUES 
+('Asana', 'postura', 'pose'),
+('Adho', 'abajo', 'downward'),
+('Ardha', 'mitad', 'half'),
+('Urdhva', 'arriba', 'upward'),
+('Mukha', 'rostro', 'face'),
+('Svana', 'perro', 'dog'),
+('Virabhadra', 'guerrero', 'warrior'),
+('Vriksha', 'árbol', 'tree'),
+('Bala', 'niño', 'child'),
+('Bhujanga', 'cobra', 'cobra'),
+('Paschi', 'oeste', 'west'),
+('Setu', 'puente', 'bridge'),
+('Shava', 'cadáver', 'corpse'),
+('Trikona', 'triángulo', 'triangle'),
+('Matsya', 'pez', 'fish'),
+('Mala', 'guirnalda', 'garland'),
+('Eka', 'uno', 'one'),
+('Pada', 'pie', 'foot'),
+('Raja', 'real', 'royal'),
+('Kapota', 'paloma', 'pigeon'),
+('Hasta', 'mano', 'hand'),
+('Parivrtta', 'invertido', 'inverted'),
+('Janu', 'rodilla', 'knee'),
+('Sirsa', 'cabeza', 'head');

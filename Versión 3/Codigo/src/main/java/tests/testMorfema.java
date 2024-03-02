@@ -26,7 +26,7 @@ public class testMorfema {
 		if(foundMorfemaByAsana != null) {
 			System.out.println("En la palabra en sanscrito -> " + asanaEjemplo);
 			for(Morfema morfema : foundMorfemaByAsana) {
-				System.out.println(morfema.getNombreMorfema()+"  ->  " + morfema.getTraduccion());
+				System.out.println(morfema.getNombreMorfema()+"  ->  " + morfema.getTraduccionEsp());
 			}
 		} else {
 			System.out.println("No se encontro morfemas con esa Asana");

@@ -39,7 +39,7 @@
 							method="post">
 								<div class="input-group mb-3">
 									<input type="text" class="form-control"
-										placeholder="Introduce Nombre Postura" name="postureName">
+										placeholder="Introduce Postura en Sánscrito" name="sanskritName">
 								</div>
 							</form>
 							<!-- Mostrar mensaje de error si existe -->
