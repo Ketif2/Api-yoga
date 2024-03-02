@@ -47,8 +47,10 @@
 						<li class="list-group-item"><c:out value="Español: ${español}" /></li>	
 						<li class="list-group-item card-header"> <h6>Morfemas Usados</h6> </li>
 						<c:forEach var="morfema" items="${morfemas}">
-							<c:out value="${morfema.nombreMorfema}"/>:
-							<c:out value="${morfema.traduccion}"/>
+							<li class="list-group-item"><c:out value="Sánscrito: ${morfema.nombreMorfema}" /></li>
+							<c:out value="Español:"/>
+							<c:out value="${morfema.traduccionEsp}"/>. Ingles:
+							<c:out value="${morfema.traduccionIngles}"/>
 							<br>
 						</c:forEach>	
 					</ul>

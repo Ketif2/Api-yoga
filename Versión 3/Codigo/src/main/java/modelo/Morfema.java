@@ -17,35 +17,44 @@ public class Morfema implements Serializable {
 
     // Atributos de un Morfema
     private String nombreMorfema;
-    private String traduccion;
+    private String traduccionEsp;
+    private String traduccionIngles;
 
     // Constructores
     public Morfema() {
     }
 
-    public Morfema(String nombreMorfema, String traduccion) {
-        this.nombreMorfema = nombreMorfema;
-        this.traduccion = traduccion;
-    }
+    public Morfema(String nombreMorfema, String traduccionEsp, String traduccionIngles) {
+		this.nombreMorfema = nombreMorfema;
+		this.traduccionEsp = traduccionEsp;
+		this.traduccionIngles = traduccionIngles;
+	}
+    
+	public String getNombreMorfema() {
+		return nombreMorfema;
+	}
 
-    // Métodos getter y setter para los atributos de Morfema
-    public String getNombreMorfema() {
-        return nombreMorfema;
-    }
+	public void setNombreMorfema(String nombreMorfema) {
+		this.nombreMorfema = nombreMorfema;
+	}
 
-    public void setNombreMorfema(String nombreMorfema) {
-        this.nombreMorfema = nombreMorfema;
-    }
+	public String getTraduccionEsp() {
+		return traduccionEsp;
+	}
 
-    public String getTraduccion() {
-        return traduccion;
-    }
+	public void setTraduccionEsp(String traduccionEsp) {
+		this.traduccionEsp = traduccionEsp;
+	}
 
-    public void setTraduccion(String traduccion) {
-        this.traduccion = traduccion;
-    }
+	public String getTraduccionIngles() {
+		return traduccionIngles;
+	}
 
-    // Método para obtener todos los morfemas desde la base de datos
+	public void setTraduccionIngles(String traduccionIngles) {
+		this.traduccionIngles = traduccionIngles;
+	}
+
+	// Método para obtener todos los morfemas desde la base de datos
     public ArrayList<Morfema> getMorfemas() {
         listaMorfemas = new ArrayList<Morfema>();
         try {
@@ -57,7 +66,8 @@ public class Morfema implements Serializable {
             while (rs.next()) {
                 Morfema morfema = new Morfema();
                 morfema.setNombreMorfema(rs.getString(2));
-                morfema.setTraduccion(rs.getString(3));
+                morfema.setTraduccionEsp(rs.getString(3));
+                morfema.setTraduccionIngles(rs.getString(4));
                 listaMorfemas.add(morfema);
             }
 

@@ -48,6 +48,15 @@ public class postureController extends HttpServlet {
             case "searchAsanaByCategory":
                 this.searchAsanaByCategory(request, response);
                 break;
+            case "guardarAsana":
+                this.saveAsana(request, response);
+                break;
+            case "actualizarAsana":
+                this.updateAsana(request, response);
+                break;
+            case "eliminarAsana":
+                this.deleteAsana(request, response);
+                break;
         }
     }
 
@@ -59,13 +68,13 @@ public class postureController extends HttpServlet {
     // Método para buscar información sobre una asana por su nombre sánscrito
     private void searchAsana(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        String postureName = request.getParameter("postureName");
+        String sanskritName = request.getParameter("sanskritName");
         Morfema morfemaModel = new Morfema();
         Asana asanaModel = new Asana();
         ArrayList<Asana> listaAsanas = asanaModel.getAsanas();
         ArrayList<Morfema> listaMorfema = morfemaModel.getMorfemas();
-        Asana foundAsana = asanaModel.buscarPorNombre(postureName, listaAsanas);
-        ArrayList<Morfema> foundMorfemas = morfemaModel.buscarMorfemasEnPalabra(postureName, listaMorfema);
+        Asana foundAsana = asanaModel.buscarPorNombre(sanskritName, listaAsanas);
+        ArrayList<Morfema> foundMorfemas = morfemaModel.buscarMorfemasEnPalabra(sanskritName, listaMorfema);
 
         if (foundAsana != null) {
             String nombreAsana = foundAsana.getNombreEnSans();
@@ -76,8 +85,7 @@ public class postureController extends HttpServlet {
             request.setAttribute("morfemas", foundMorfemas);
             request.getRequestDispatcher("/jsp/searchResultAsana.jsp").forward(request, response);
         } else {
-        	request.setAttribute("error", "Postura no encontrada.\nPor favor, verifica que el nombre"
-        			+ " de la postura ingresada sea correcto e inténtalo nuevamente.");
+        	request.setAttribute("error", "Postura no encontrada.\nPor favor, verifica que el nombre de la postura ingresada sea correcto e inténtalo nuevamente.");
             request.getRequestDispatcher("/jsp/dashboard.jsp").forward(request, response);
         }
     }
@@ -94,12 +102,14 @@ public class postureController extends HttpServlet {
 
         if (foundMorfema != null) {
             request.setAttribute("morfemaSancrito", foundMorfema.getNombreMorfema());
-            request.setAttribute("morfemaEspañol", foundMorfema.getTraduccion());
-            System.out.println("" + foundMorfema.getNombreMorfema() + foundMorfema.getTraduccion());
+            request.setAttribute("morfemaEspañol", foundMorfema.getTraduccionEsp());
+            request.setAttribute("morfemaIngles", foundMorfema.getTraduccionIngles());
+            System.out.println("" + foundMorfema.getNombreMorfema() + foundMorfema.getTraduccionEsp());
             request.getRequestDispatcher("/jsp/searchResultMorfema.jsp").forward(request, response);
         } else {
         	request.setAttribute("error1", "Morfema no encontrado.\nPor favor, verifica que el morfema ingresado sea correcto e inténtalo nuevamente.");
             request.getRequestDispatcher("/jsp/dashboard.jsp").forward(request, response);
+
         }
     }
 
@@ -127,5 +137,53 @@ public class postureController extends HttpServlet {
         request.setAttribute("asanasPorCategoria", asanasPorCategoria);
         request.setAttribute("Categoria", translatedCategory);
         request.getServletContext().getRequestDispatcher("/jsp/searchAsanaByCategory.jsp").forward(request, response);
+    }
+    
+    private void saveAsana(HttpServletRequest request, HttpServletResponse response) 
+    		throws IOException, ServletException {
+    	String nombreEnIngles = request.getParameter("nombreEnIngles");
+	    String nombreEnEspañol = request.getParameter("nombreEnEspañol");
+	    String nombreEnSans = request.getParameter("nombreEnSans");
+	    String categoria = request.getParameter("categoria");
+	    String rutaImagen = request.getParameter("rutaImagen");
+
+	    Asana nuevaAsana = new Asana(nombreEnIngles, nombreEnEspañol, nombreEnSans);
+	    nuevaAsana.setCategoria(categoria);
+	    nuevaAsana.setRutaImagen(rutaImagen);
+	    nuevaAsana.guardarAsana(nuevaAsana);
+
+	    // Redirigir o mostrar un mensaje de éxito al usuario
+	    
+    }
+    
+    private void updateAsana(HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ServletException {
+        int idAsana = Integer.parseInt(request.getParameter("idAsana"));
+        String nombreEnIngles = request.getParameter("nombreEnIngles");
+        String nombreEnEspañol = request.getParameter("nombreEnEspañol");
+        String nombreEnSans = request.getParameter("nombreEnSans");
+        String categoria = request.getParameter("categoria");
+        String rutaImagen = request.getParameter("rutaImagen");
+
+        Asana asanaActualizada = new Asana(nombreEnIngles, nombreEnEspañol, nombreEnSans);
+        asanaActualizada.setId(idAsana);
+        asanaActualizada.setCategoria(categoria);
+        asanaActualizada.setRutaImagen(rutaImagen);
+
+        asanaActualizada.actualizarAsana(asanaActualizada);
+
+        // Redirigir 
+    }
+
+    // Método para eliminar una Asana de la base de datos
+    private void deleteAsana(HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ServletException {
+        int idAsana = Integer.parseInt(request.getParameter("idAsana"));
+        Asana asana = new Asana();
+        asana.setId(idAsana);
+        asana.eliminarAsana(idAsana);
+
+        // Redirigir 
+        
     }
 }

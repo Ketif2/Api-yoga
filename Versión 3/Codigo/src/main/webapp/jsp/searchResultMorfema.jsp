@@ -46,6 +46,7 @@
 						<ul class="list-group list-group-flush">
 							Sánscrito: <li class="list-group-item"><c:out value="${morfemaSancrito}" /></li>
 							Español: <li class="list-group-item"><c:out value="${morfemaEspañol}" /></li>
+							Ingles: <li class="list-group-item"><c:out value="${morfemaIngles}" /></li>
 						</ul>
 					</div>
 				</div>

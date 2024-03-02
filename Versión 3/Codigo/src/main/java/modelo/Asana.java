@@ -22,6 +22,7 @@ public class Asana implements Serializable {
     private String nombreEnSans;
     private String categoria;
     private String rutaImagen;
+    private int id;
 
     // Constructores
     public Asana() {
@@ -78,6 +79,14 @@ public class Asana implements Serializable {
         this.rutaImagen = rutaImgen;
     }
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	// Método para obtener todas las Asanas desde la base de datos
     public ArrayList<Asana> getAsanas() {
         listaAsanas = new ArrayList<Asana>();
@@ -89,6 +98,7 @@ public class Asana implements Serializable {
             // Procesar los resultados y almacenar las asanas en la lista
             while (rs.next()) {
                 Asana asana = new Asana();
+                asana.setId(rs.getInt(1));
                 asana.setNombreEnIngles(rs.getString(2));
                 asana.setNombreEnEspañol(rs.getString(3));
                 asana.setNombreEnSans(rs.getString(4));
@@ -110,9 +120,7 @@ public class Asana implements Serializable {
     // Método para buscar una Asana por su nombre en sánscrito en la lista
     public Asana buscarPorNombre(String nombre, ArrayList<Asana> listaAsanas) {
         for (Asana asana : listaAsanas) {
-            if (asana.getNombreEnSans().equalsIgnoreCase(nombre) || 
-            	asana.getNombreEnEspañol().equalsIgnoreCase(nombre) ||
-            	asana.getNombreEnIngles().equalsIgnoreCase(nombre)) {
+            if (asana.getNombreEnSans().equalsIgnoreCase(nombre)) {
                 return asana;
             }
         }
@@ -133,6 +141,7 @@ public class Asana implements Serializable {
             // Procesar los resultados y almacenar las asanas en la lista
             while (rs.next()) {
                 Asana asana = new Asana();
+                asana.setId(rs.getInt(1));
                 asana.setNombreEnIngles(rs.getString(2));
                 asana.setNombreEnEspañol(rs.getString(3));
                 asana.setNombreEnSans(rs.getString(4));
@@ -151,4 +160,73 @@ public class Asana implements Serializable {
 
         return listaAsanas;
     }
+    
+    
+    //Nueva iteración V3.0
+    //OPERACIONES CRUD
+    
+    public void guardarAsana(Asana nuevaAsana) {
+    	final String SQL_INSERT = "INSERT INTO asanas (nombreIngles, nombreEsp, nombreSanscrito, "
+    			+ "imagenRuta, categoria) VALUES (?, ?, ?, ?, ?)";
+    	try {
+			PreparedStatement pstm = BddConeccion.getConexion().prepareStatement(SQL_INSERT);
+			pstm.setString(1, nuevaAsana.getNombreEnIngles());
+	        pstm.setString(2, nuevaAsana.getNombreEnEspañol());
+	        pstm.setString(3, nuevaAsana.getNombreEnSans());
+	        pstm.setString(4, nuevaAsana.getRutaImagen());
+	        pstm.setString(5, nuevaAsana.getCategoria());
+	        pstm.executeUpdate();
+	        
+            BddConeccion.cerrar(pstm);
+            BddConeccion.cerrar();
+            
+            System.out.println("Asana guardada exitosamente en la base de datos.");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("ERROR: No se guardo la ASANA");
+			e.printStackTrace();
+			
+		}
+    }
+    
+    public void actualizarAsana(Asana asanaActualizada) {
+        final String SQL_UPDATE = "UPDATE asanas SET nombreIngles = ?, nombreEsp = ?, nombreSanscrito = ?, "
+                + "imagenRuta = ?, categoria = ? WHERE idAsana = ?";
+        try {
+            PreparedStatement pstm = BddConeccion.getConexion().prepareStatement(SQL_UPDATE);
+            pstm.setString(1, asanaActualizada.getNombreEnIngles());
+            pstm.setString(2, asanaActualizada.getNombreEnEspañol());
+            pstm.setString(3, asanaActualizada.getNombreEnSans());
+            pstm.setString(4, asanaActualizada.getRutaImagen());
+            pstm.setString(5, asanaActualizada.getCategoria());
+            pstm.setInt(6, asanaActualizada.getId());
+            pstm.executeUpdate();
+
+            BddConeccion.cerrar(pstm);
+            BddConeccion.cerrar();
+
+            System.out.println("Asana actualizada exitosamente en la base de datos.");
+        } catch (SQLException e) {
+            System.out.println("ERROR: No se pudo actualizar la ASANA");
+            e.printStackTrace();
+        }
+    }
+    
+    public void eliminarAsana(int idAsana) {
+        final String SQL_DELETE = "DELETE FROM asanas WHERE idAsana = ?";
+        try {
+            PreparedStatement pstm = BddConeccion.getConexion().prepareStatement(SQL_DELETE);
+            pstm.setInt(1, idAsana);
+            pstm.executeUpdate();
+
+            BddConeccion.cerrar(pstm);
+            BddConeccion.cerrar();
+
+            System.out.println("Asana eliminada exitosamente de la base de datos.");
+        } catch (SQLException e) {
+            System.out.println("ERROR: No se pudo eliminar la ASANA");
+            e.printStackTrace();
+        }
+    }
+
 }
