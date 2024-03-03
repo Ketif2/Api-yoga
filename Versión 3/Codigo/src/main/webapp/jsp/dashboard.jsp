@@ -26,21 +26,19 @@
 <body>
 	<!-------Header--------->
 	<header>
-		<nav class="navbar bg-body-tertiary bg-custom">
-			<div class="container-fluid">
+			<div class="div_header_structure">
 				<div class="div_img">
-					<img class="img"
-						src="${pageContext.request.contextPath}/img/LogoYY.png" alt="">
-				</div>
+            		<img class="img" src="${pageContext.request.contextPath}/img/LogoYY.png" alt="">
+	            </div>
+	            <div class="div_text text-center">
+	                <a>Asana Léxico</a>
+	            </div>
 				<div class="pt-2">
-					<!-- Button trigger modal -->
 					<button type="button" class="btn btn-success pt-2 mb-2"
 						data-bs-toggle="modal" data-bs-target="#modalAsana">Agregar
 						Asana</button>
-
 				</div>
 			</div>
-		</nav>
 	</header>
 	<!-------PopUp--------->
 	<div class="modal fade" id="modalAsana" tabindex="-1"
@@ -111,33 +109,26 @@
 	</div>
 	<!-------Section--------->
 	<div id="div_busquedas"
-		style="background-image: url('../img/backgroundDashboard.webp'); background-size: cover; background-repeat: no-repeat; height: 800px; display: flex; align-items: center; justify-content: center; text-align: center;">
+		style="background-image: url('../img/backgroundDashboard.webp'); background-size: cover; background-repeat: no-repeat; height: 550px; text-align: center;">
 		<!-- Contenido del div, como texto o cualquier otra cosa -->
 		<div class="card-body">
 			<h1 class="card-title">
-				<span class="text-center text-black">Asana Léxico</span>
+				<span class="text-center text-black">Diccionario de Asanas</span>
 			</h1>
-			<h3 class="card-text .text-secondary-emphasis">Tú espacio para aprender y practica</h3>
-			<p class="card-text">
-				<small class="text-body-secondary text-white-50">La asociación
-					internacional de Yoga Yoguismo, la abreviación de mi organización
-					es AIAYY nosotros somos una organización internacional nuestra sede
-					principal está en México somos una organización bien conocida.</small>
-			</p>
+			<h3 class="card-text .text-secondary-emphasis"> ¡Explora nuestras posturas, encuentra tu práctica perfecta y déjate llevar por la magia del yoga!</h3>
 		</div>
 	</div>
 	<div class="container p-3">
 		<div class="container text-center">
 			<h1 class="card-title">
-				<span class="text-center text-success">Búsqueda por...</span>
+				<span class="text-center text-success">BÚSQUEDA POR:</span>
 			</h1>
 			<div class="row1 mb-5 pb-3">
 				<div class="col">
 					<div class="card text-center">
 						<div class="card-header">Asana</div>
 						<div class="card-body">
-							<p class="card-text text-success">Te interesa saber todo de una Asana
-								(posición) puedes buscarla por el idioma que quieras</p>
+							<p class="card-text text-success">Ingresa la Asana de la cual quieras conocer más información</p>
 							<form
 								action="${pageContext.request.contextPath}/postureController?rute=searchAsana"
 								method="post">
@@ -161,8 +152,7 @@
 					<div class="card text-center">
 						<div class="card-header text-light">Morfema</div>
 						<div class="card-body">
-							<p class="card-text text-success">¿Te interesa saber que significa un
-								morfema de tu asana? Puedes buscarlo aquí</p>
+							<p class="card-text text-success">Ingresa el morfema para conocer su traducción</p>
 							<form
 								action="${pageContext.request.contextPath}/postureController?rute=searchMorfema"
 								method="post">
@@ -186,9 +176,7 @@
 					<div class="card text-center">
 						<div class="card-header text-light">Categoría</div>
 						<div class="card-body  mb-3">
-							<p class="card-text text-success">Tenemos 3 categorias que te pueden
-								interesar, es un diccionario de casa asana
-								vistas por una postura</p>
+							<p class="card-text text-success">Busca las posturas por su categoría</p>
 							<form
 								action="${pageContext.request.contextPath}/postureController?rute=searchAsanaByCategory"
 								method="post">
@@ -210,7 +198,7 @@
 	<!-------Footer--------->
 	<footer class="footer">
 		<div>
-			<a> © 2023 SoftwareBoys. Todos los derechos reservados. </a>
+			<a> © 2023 SoftwareBoys.</a>
 		</div>
 	</footer>
 	<!-------SCRIPTS--------->
@@ -226,28 +214,24 @@
             var input = document.createElement('input');
             input.type = 'file';
 
-            // Restringir la selección a archivos de imagen
             input.accept = 'image/*';
 
             input.onchange = function (e) {
                 var rutaImagenConExtension = e.target.value;
 
-                // Verificar si el archivo seleccionado es una imagen
                 if (esImagen(rutaImagenConExtension)) {
                     var nombreImagenSinExtension = rutaImagenConExtension.replace(/^.*[\\\/]/, '').split('.').slice(0, -1).join('');
                     document.getElementById('rutaImagen').value = 'img/' + nombreImagenSinExtension;
                 } else {
-                    // Limpiar el valor del campo si no es una imagen
                     alert('Por favor, selecciona un archivo de imagen válido.');
-                    input.value = ''; // Limpiar el valor del input
-                    document.getElementById('rutaImagen').value = ''; // Limpiar el campo de texto
+                    input.value = '';
+                    document.getElementById('rutaImagen').value = ''; 
                 }
             };
 
             input.click();
         }
 
-        // Función para verificar si la extensión del archivo es una imagen
         function esImagen(nombreArchivo) {
             var extensionesImagen = ['.jpg', '.jpeg', '.png'];
             var extension = nombreArchivo.split('.').pop().toLowerCase();

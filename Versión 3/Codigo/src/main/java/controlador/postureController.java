@@ -109,7 +109,8 @@ public class postureController extends HttpServlet {
 			request.getRequestDispatcher("/jsp/searchResultMorfema.jsp").forward(request, response);
 		} else {
 			request.setAttribute("error1",
-					"Morfema no encontrado.\nPor favor, verifica que el morfema ingresado sea correcto e inténtalo nuevamente.");
+					"Morfema no encontrado.\nPor favor, verifica que el morfema ingresado sea correcto"
+					+ " e inténtalo nuevamente.");
 			request.getRequestDispatcher("/jsp/dashboard.jsp").forward(request, response);
 
 		}

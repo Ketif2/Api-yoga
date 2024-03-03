@@ -1,7 +1,6 @@
 header{
     background-color:#E4E4E4;
     border-bottom: 2px solid #3cb2a7;
-    padding: 10px;
 }
 
 .div_img
@@ -29,14 +28,14 @@ header{
 
 .footer
 {
-  background-color: #E4E4E4; /* Cambia el color del fondo a tu gusto */
+  background-color: #E4E4E4; 
   width: 100%;
-  height: 50px; /* Altura del footer */
+  height: 50px; 
   position: fixed;
   bottom: 0;
   left: 0;
   text-align: center;
-  line-height: 50px; /* Centra verticalmente el texto del footer */
+  line-height: 50px; 
   border-top: 2px solid #3cb2a7;
   z-index: 1;
 }
@@ -72,7 +71,7 @@ header{
 }
 
 .bg-custom {
-  background-color: #E4E4E4 !important; /* Using !important to override default Bootstrap styles if necessary */
+  background-color: #E4E4E4 !important; 
 }
 .btn:hover {
     color: #ffffff;

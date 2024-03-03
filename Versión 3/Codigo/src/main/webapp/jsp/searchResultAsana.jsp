@@ -162,7 +162,7 @@
 								<li class="list-group-item"><c:out
 										value="Sánscrito: ${morfema.nombreMorfema}" /></li>
 								<c:out value="Español:" />
-								<c:out value="${morfema.traduccionEsp}" />. Ingles:
+								<c:out value="${morfema.traduccionEsp}" /> - Inglés:
 							<c:out value="${morfema.traduccionIngles}" />
 								<br>
 							</c:forEach>
@@ -177,7 +177,7 @@
 	<!-------Footer--------->
 	<footer class="footer">
 		<div>
-			<a> © 2023 SoftwareBoys. Todos los derechos reservados. </a>
+			<a> © 2023 SoftwareBoys.</a>
 		</div>
 	</footer>
 	<!-------SCRIPTS--------->

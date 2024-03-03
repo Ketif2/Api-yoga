@@ -52,7 +52,7 @@
 	<footer class="footer">
         <div>
             <a>
-                © 2023 SoftwareBoys. Todos los derechos reservados.
+                © 2023 SoftwareBoys.
             </a>
         </div>
     </footer>
