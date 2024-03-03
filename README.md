@@ -1,4 +1,4 @@
-# Posiciones de Yoga - Api-yoga - Yoguismo
+[ScriptBaseTablasAsanasMorfemasSQL.txt](https://github.com/Ketif2/Api-yoga/files/14471243/ScriptBaseTablasAsanasMorfemasSQL.txt)[ScriptBaseTablasAsanasMorfemasSQL.txt](https://github.com/Ketif2/Api-yoga/files/14471237/ScriptBaseTablasAsanasMorfemasSQL.txt)# Posiciones de Yoga - Api-yoga - Yoguismo
 
 Bienvenido al aplicativo de Posiciones de Yoga, un proyecto desarrollado por Software Boys.
 
@@ -26,9 +26,32 @@ Este proyecto proporciona una aplicativo que interactua con el usuario, ayudando
 
 2. Configura la base de datos y otros parámetros:
    * Tablas [Asana] y [Morfema]
-    [ScriptBaseTablasAsanasMorfemasSQL.txt](https://github.com/Ketif2/Api-yoga/files/13814971/ScriptBaseTablasAsanasMorfemasSQL.txt)
+[Uploadi-- Crear la base de datos
+CREATE DATABASE IF NOT EXISTS api_yoga;
+
+-- Seleccionar la base de datos
+USE api_yoga;
+
+-- Crear la primera tabla
+CREATE TABLE IF NOT EXISTS asanas (
+    id INT(8) AUTO_INCREMENT PRIMARY KEY,
+    nombreIngles VARCHAR(32),
+    nombreEsp VARCHAR(32),
+    nombreSanscrito VARCHAR(32),
+    imagenRuta VARCHAR(32),
+    categoria VARCHAR(8)
+);
+
+-- Crear la segunda tabla
+CREATE TABLE IF NOT EXISTS morfemas (
+    id INT(8) AUTO_INCREMENT PRIMARY KEY,
+    nombreMorfema VARCHAR(32),
+    traduccionEsp VARCHAR(32),
+    traduccionIngles VARCHAR(32)
+);ng ScriptBaseTablasAsanasMorfemasSQL.txt…]()
+
    * Llenado de datos
-    [ScriptAsanasMorfemasSQL.txt](https://github.com/Ketif2/Api-yoga/files/13814970/ScriptAsanasMorfemasSQL.txt)
+[ScriptDataAsanasMorfemasSQL.txt](https://github.com/Ketif2/Api-yoga/files/14471239/ScriptDataAsanasMorfemasSQL.txt)
 
 4. En caso de error con las librerias
 Abrir el IDE Eclipse
