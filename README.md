@@ -14,7 +14,7 @@ Este proyecto proporciona una aplicativo que interactua con el usuario, ayudando
 ## Tecnologías Utilizadas
 - [Lenguaje de Programación] - Java
 - [Web]: HTML - CSS
-- [Base de Datos] - PHPMyAdmin
+- [Base de Datos] - PHPMyAdmin - SQL
 - [Arquitectura] - MVC
 ## Instalación
 
@@ -49,6 +49,6 @@ Abrir el IDE Eclipse
 
 ## Créditos
 
-Este proyecto fue desarrollado por [Software Boys]. Derechos Reservados.
+Este proyecto fue desarrollado por [Software Boys].
 
 
