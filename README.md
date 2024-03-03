@@ -1,4 +1,4 @@
-[ScriptBaseTablasAsanasMorfemasSQL.txt](https://github.com/Ketif2/Api-yoga/files/14471243/ScriptBaseTablasAsanasMorfemasSQL.txt)[ScriptBaseTablasAsanasMorfemasSQL.txt](https://github.com/Ketif2/Api-yoga/files/14471237/ScriptBaseTablasAsanasMorfemasSQL.txt)# Posiciones de Yoga - Api-yoga - Yoguismo
+# Posiciones de Yoga - Api-yoga - Yoguismo
 
 Bienvenido al aplicativo de Posiciones de Yoga, un proyecto desarrollado por Software Boys.
 
@@ -26,7 +26,7 @@ Este proyecto proporciona una aplicativo que interactua con el usuario, ayudando
 
 2. Configura la base de datos y otros parámetros:
    * Tablas [Asana] y [Morfema]
-[Uploading ScriptBaseTablasAsanasMorfemasSQL.txt…]()
+[ScriptBaseTablasAsanasMorfemasSQL.txt](https://github.com/Ketif2/Api-yoga/files/14471243/ScriptBaseTablasAsanasMorfemasSQL.txt)
    * Llenado de datos
 [ScriptDataAsanasMorfemasSQL.txt](https://github.com/Ketif2/Api-yoga/files/14471239/ScriptDataAsanasMorfemasSQL.txt)
 
