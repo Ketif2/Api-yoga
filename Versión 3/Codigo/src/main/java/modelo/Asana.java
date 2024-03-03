@@ -1,11 +1,13 @@
 package modelo;
 
 import java.io.Serializable;
+import java.text.Normalizer;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class Asana implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -119,12 +121,24 @@ public class Asana implements Serializable {
 
     // Método para buscar una Asana por su nombre en sánscrito en la lista
     public Asana buscarPorNombre(String nombre, ArrayList<Asana> listaAsanas) {
+        String nombreNormalizado = normalizar(nombre);
         for (Asana asana : listaAsanas) {
-            if (asana.getNombreEnSans().equalsIgnoreCase(nombre)) {
+            if (normalizar(asana.getNombreEnSans()).equalsIgnoreCase(nombreNormalizado) || 
+                normalizar(asana.getNombreEnIngles()).equalsIgnoreCase(nombreNormalizado) ||
+                normalizar(asana.getNombreEnEspañol()).equalsIgnoreCase(nombreNormalizado)) {
                 return asana;
             }
         }
         return null;
+    }
+
+    private String normalizar(String str) {
+        String nfdNormalizedString = Normalizer.normalize(str, Normalizer.Form.NFD); 
+        Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+        String normalized = pattern.matcher(nfdNormalizedString).replaceAll("");
+        normalized = normalized.replace("ñ", "n");
+        normalized = normalized.replace("Ñ", "N");
+        return normalized.toLowerCase();
     }
 
     // Método para obtener Asanas por categoría desde la base de datos
@@ -191,7 +205,7 @@ public class Asana implements Serializable {
     
     public void actualizarAsana(Asana asanaActualizada) {
         final String SQL_UPDATE = "UPDATE asanas SET nombreIngles = ?, nombreEsp = ?, nombreSanscrito = ?, "
-                + "imagenRuta = ?, categoria = ? WHERE idAsana = ?";
+                + "imagenRuta = ?, categoria = ? WHERE id = ?";
         try {
             PreparedStatement pstm = BddConeccion.getConexion().prepareStatement(SQL_UPDATE);
             pstm.setString(1, asanaActualizada.getNombreEnIngles());
@@ -213,7 +227,7 @@ public class Asana implements Serializable {
     }
     
     public void eliminarAsana(int idAsana) {
-        final String SQL_DELETE = "DELETE FROM asanas WHERE idAsana = ?";
+        final String SQL_DELETE = "DELETE FROM asanas WHERE id = ?";
         try {
             PreparedStatement pstm = BddConeccion.getConexion().prepareStatement(SQL_DELETE);
             pstm.setInt(1, idAsana);
