@@ -65,17 +65,15 @@ header{
     margin-top: var(--bs-gutter-y);
 }
 
-#div_busquedas
-{
-    margin-top: 12%; 
-}
-
 .btn-outline-info 
 {
 	color:#3cb2a7;
 	border-color: #3cb2a7;
 }
 
+.bg-custom {
+  background-color: #E4E4E4 !important; /* Using !important to override default Bootstrap styles if necessary */
+}
 .btn:hover {
     color: #ffffff;
     background-color: #3cb2a7;

@@ -26,22 +26,21 @@
 <body>
 	<!-------Header--------->
 	<header>
-		<div class="div_header_structure text-center">
-			<div class="div_img">
-				<img class="img"
-					src="${pageContext.request.contextPath}/img/LogoYY.png" alt="">
-			</div>
-			<div class="div_text mx-auto">
-				<span class="text-center">Asana Léxico</span>
-			</div>
-			<div class="pt-2">
-				<!-- Button trigger modal -->
-				<button type="button" class="btn btn-success pt-2 mb-2"
-					data-bs-toggle="modal" data-bs-target="#modalAsana">Agregar
-					Asana</button>
+		<nav class="navbar bg-body-tertiary bg-custom">
+			<div class="container-fluid">
+				<div class="div_img">
+					<img class="img"
+						src="${pageContext.request.contextPath}/img/LogoYY.png" alt="">
+				</div>
+				<div class="pt-2">
+					<!-- Button trigger modal -->
+					<button type="button" class="btn btn-success pt-2 mb-2"
+						data-bs-toggle="modal" data-bs-target="#modalAsana">Agregar
+						Asana</button>
 
+				</div>
 			</div>
-		</div>
+		</nav>
 	</header>
 	<!-------PopUp--------->
 	<div class="modal fade" id="modalAsana" tabindex="-1"
@@ -103,7 +102,7 @@
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
 								data-bs-dismiss="modal">Cancelar</button>
-							<button type="submit" class="btn btn-primary">Crear</button>
+							<button type="submit" class="btn btn-success">Crear</button>
 						</div>
 					</form>
 				</div>
@@ -111,15 +110,34 @@
 		</div>
 	</div>
 	<!-------Section--------->
-	<section class="container">
-		<div class="container text-center" id="div_busquedas">
+	<div id="div_busquedas"
+		style="background-image: url('../img/backgroundDashboard.webp'); background-size: cover; background-repeat: no-repeat; height: 800px; display: flex; align-items: center; justify-content: center; text-align: center;">
+		<!-- Contenido del div, como texto o cualquier otra cosa -->
+		<div class="card-body">
+			<h1 class="card-title">
+				<span class="text-center text-black">Asana Léxico</span>
+			</h1>
+			<h3 class="card-text .text-secondary-emphasis">Tú espacio para aprender y practica</h3>
+			<p class="card-text">
+				<small class="text-body-secondary text-white-50">La asociación
+					internacional de Yoga Yoguismo, la abreviación de mi organización
+					es AIAYY nosotros somos una organización internacional nuestra sede
+					principal está en México somos una organización bien conocida.</small>
+			</p>
+		</div>
+	</div>
+	<div class="container p-3">
+		<div class="container text-center">
+			<h1 class="card-title">
+				<span class="text-center text-success">Búsqueda por...</span>
+			</h1>
 			<div class="row1 mb-5 pb-3">
 				<div class="col">
 					<div class="card text-center">
-						<div class="card-header">Búsqueda por Asana</div>
+						<div class="card-header">Asana</div>
 						<div class="card-body">
-							<p class="card-text">Te interesa saber todo de una Asana (posición)
-puedes buscarla por el idioma que quieras</p>
+							<p class="card-text text-success">Te interesa saber todo de una Asana
+								(posición) puedes buscarla por el idioma que quieras</p>
 							<form
 								action="${pageContext.request.contextPath}/postureController?rute=searchAsana"
 								method="post">
@@ -141,10 +159,10 @@ puedes buscarla por el idioma que quieras</p>
 				</div>
 				<div class="col">
 					<div class="card text-center">
-						<div class="card-header text-light">Búsqueda por Morfema</div>
+						<div class="card-header text-light">Morfema</div>
 						<div class="card-body">
-							<p class="card-text">¿Te interesa saber que significa un morfema de tu asana?
-Puedes buscarlo aquí</p>
+							<p class="card-text text-success">¿Te interesa saber que significa un
+								morfema de tu asana? Puedes buscarlo aquí</p>
 							<form
 								action="${pageContext.request.contextPath}/postureController?rute=searchMorfema"
 								method="post">
@@ -166,9 +184,11 @@ Puedes buscarlo aquí</p>
 				</div>
 				<div class="col">
 					<div class="card text-center">
-						<div class="card-header text-light">Búsqueda por Categoría</div>
+						<div class="card-header text-light">Categoría</div>
 						<div class="card-body  mb-3">
-							<p class="card-text">Tenemos 3 categorias que te pueden interesar, es un diccionario de casa asana vistas por una postura</p>
+							<p class="card-text text-success">Tenemos 3 categorias que te pueden
+								interesar, es un diccionario de casa asana
+								vistas por una postura</p>
 							<form
 								action="${pageContext.request.contextPath}/postureController?rute=searchAsanaByCategory"
 								method="post">
@@ -185,7 +205,7 @@ Puedes buscarlo aquí</p>
 				</div>
 			</div>
 		</div>
-	</section>
+	</div>
 
 	<!-------Footer--------->
 	<footer class="footer">
