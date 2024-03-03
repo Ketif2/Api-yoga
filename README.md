@@ -26,30 +26,7 @@ Este proyecto proporciona una aplicativo que interactua con el usuario, ayudando
 
 2. Configura la base de datos y otros parámetros:
    * Tablas [Asana] y [Morfema]
-[Uploadi-- Crear la base de datos
-CREATE DATABASE IF NOT EXISTS api_yoga;
-
--- Seleccionar la base de datos
-USE api_yoga;
-
--- Crear la primera tabla
-CREATE TABLE IF NOT EXISTS asanas (
-    id INT(8) AUTO_INCREMENT PRIMARY KEY,
-    nombreIngles VARCHAR(32),
-    nombreEsp VARCHAR(32),
-    nombreSanscrito VARCHAR(32),
-    imagenRuta VARCHAR(32),
-    categoria VARCHAR(8)
-);
-
--- Crear la segunda tabla
-CREATE TABLE IF NOT EXISTS morfemas (
-    id INT(8) AUTO_INCREMENT PRIMARY KEY,
-    nombreMorfema VARCHAR(32),
-    traduccionEsp VARCHAR(32),
-    traduccionIngles VARCHAR(32)
-);ng ScriptBaseTablasAsanasMorfemasSQL.txt…]()
-
+[Uploading ScriptBaseTablasAsanasMorfemasSQL.txt…]()
    * Llenado de datos
 [ScriptDataAsanasMorfemasSQL.txt](https://github.com/Ketif2/Api-yoga/files/14471239/ScriptDataAsanasMorfemasSQL.txt)
 
