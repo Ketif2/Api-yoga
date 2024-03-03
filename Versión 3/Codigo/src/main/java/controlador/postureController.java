@@ -65,11 +65,12 @@ public class postureController extends HttpServlet {
 	private void searchAsana(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 		String sanskritName = request.getParameter("sanskritName");
+		String postureName = validateWhiteSpaces(sanskritName);
 		Morfema morfemaModel = new Morfema();
 		Asana asanaModel = new Asana();
 		ArrayList<Asana> listaAsanas = asanaModel.getAsanas();
 		ArrayList<Morfema> listaMorfema = morfemaModel.getMorfemas();
-		Asana foundAsana = asanaModel.buscarPorNombre(sanskritName, listaAsanas);
+		Asana foundAsana = asanaModel.buscarPorNombre(postureName, listaAsanas);
 
 		if (foundAsana != null) {
 			String nombreAsana = foundAsana.getNombreEnSans();
@@ -84,7 +85,8 @@ public class postureController extends HttpServlet {
 			request.getRequestDispatcher("/jsp/searchResultAsana.jsp").forward(request, response);
 		} else {
 			request.setAttribute("error",
-					"Postura no encontrada.\nPor favor, verifica que el nombre de la postura ingresada sea correcto e inténtalo nuevamente.");
+					"Postura no encontrada.\nPor favor, verifica que el nombre de la postura"
+					+ " ingresada sea correcto e inténtalo nuevamente.");
 			request.getRequestDispatcher("/jsp/dashboard.jsp").forward(request, response);
 		}
 	}
@@ -93,7 +95,7 @@ public class postureController extends HttpServlet {
 	private void searchMorfema(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 
-		String morfemaName = request.getParameter("morfemaName");
+		String morfemaName = validateWhiteSpaces(request.getParameter("morfemaName"));
 
 		Morfema morfemaModel = new Morfema();
 		ArrayList<Morfema> listaMorfemas = morfemaModel.getMorfemas();
@@ -141,11 +143,11 @@ public class postureController extends HttpServlet {
 
 	private void saveAsana(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
-		String nombreEnIngles = request.getParameter("nombreEnIngles");
-		String nombreEnEspañol = request.getParameter("nombreEnEspanol");
-		String nombreEnSans = request.getParameter("nombreEnSans");
-		String categoria = request.getParameter("categoria");
-		String rutaImagen = request.getParameter("rutaImagen");
+		String nombreEnIngles = validateWhiteSpaces(request.getParameter("nombreEnIngles"));
+		String nombreEnEspañol = validateWhiteSpaces(request.getParameter("nombreEnEspanol"));
+		String nombreEnSans = validateWhiteSpaces(request.getParameter("nombreEnSans"));
+		String categoria = validateWhiteSpaces(request.getParameter("categoria"));
+		String rutaImagen = validateWhiteSpaces(request.getParameter("rutaImagen"));
 
 		Asana nuevaAsana = new Asana(nombreEnIngles, nombreEnEspañol, nombreEnSans);
 		nuevaAsana.setCategoria(categoria);
@@ -159,11 +161,11 @@ public class postureController extends HttpServlet {
 	private void updateAsana(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 		int idAsana = Integer.parseInt(request.getParameter("idAsana"));
-		String nombreEnIngles = request.getParameter("nombreEnIngles");
-		String nombreEnEspañol = request.getParameter("nombreEnEspanol");
-		String nombreEnSans = request.getParameter("nombreEnSans");
-		String categoria = request.getParameter("categoria");
-		String rutaImagen = request.getParameter("rutaImagen");
+		String nombreEnIngles = validateWhiteSpaces(request.getParameter("nombreEnIngles"));
+		String nombreEnEspañol = validateWhiteSpaces(request.getParameter("nombreEnEspanol"));
+		String nombreEnSans = validateWhiteSpaces(request.getParameter("nombreEnSans"));
+		String categoria = validateWhiteSpaces(request.getParameter("categoria"));
+		String rutaImagen = validateWhiteSpaces(request.getParameter("rutaImagen"));
 
 		Asana asanaActualizada = new Asana(nombreEnIngles, nombreEnEspañol, nombreEnSans);
 		asanaActualizada.setId(idAsana);
@@ -177,13 +179,18 @@ public class postureController extends HttpServlet {
     // Método para eliminar una Asana de la base de datos
     private void deleteAsana(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        System.out.println("Estamos en Eliminar 1");
     	int idAsana = Integer.parseInt(request.getParameter("idAsana"));
-    	System.out.println("Estamos en Eliminar 2" + idAsana);
         Asana asana = new Asana();
         asana.setId(idAsana);
         asana.eliminarAsana(idAsana);
 
         request.getRequestDispatcher("/jsp/dashboard.jsp").forward(request, response); 
     }
+    
+    private String validateWhiteSpaces(String text) {
+    	String newString = text.strip();
+    	newString = newString.replaceAll("\\s+", " ");
+        return newString;
+    }
+    
 }
