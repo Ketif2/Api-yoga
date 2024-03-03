@@ -26,9 +26,9 @@ Este proyecto proporciona una aplicativo que interactua con el usuario, ayudando
 
 2. Configura la base de datos y otros parámetros:
    * Tablas [Asana] y [Morfema]
-    [ScriptBaseTablasAsanasMorfemasSQL.txt](https://github.com/Ketif2/Api-yoga/files/13814971/ScriptBaseTablasAsanasMorfemasSQL.txt)
+[ScriptBaseTablasAsanasMorfemasSQL.txt](https://github.com/Ketif2/Api-yoga/files/14471243/ScriptBaseTablasAsanasMorfemasSQL.txt)
    * Llenado de datos
-    [ScriptAsanasMorfemasSQL.txt](https://github.com/Ketif2/Api-yoga/files/13814970/ScriptAsanasMorfemasSQL.txt)
+[ScriptDataAsanasMorfemasSQL.txt](https://github.com/Ketif2/Api-yoga/files/14471239/ScriptDataAsanasMorfemasSQL.txt)
 
 4. En caso de error con las librerias
 Abrir el IDE Eclipse
